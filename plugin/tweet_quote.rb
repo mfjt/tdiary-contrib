@@ -56,7 +56,7 @@ def twitter_statuses_show_api( tweet_id )
 		:proxy => proxy
 	}
 	Timeout.timeout( 20 ) do
-		open( "#{url}?#{parameters.map{|k,v| "#{k}=#{v}"}.join( "&" )}", headers ) {|f| f.read }
+		URI.open( "#{url}?#{parameters.map{|k,v| "#{k}=#{v}"}.join( "&" )}", headers ) {|f| f.read }
 	end
 end
 
